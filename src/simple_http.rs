@@ -85,6 +85,7 @@ impl SimpleHttpTransport {
 
         // Parse first HTTP response header line
         let http_response = get_line(&mut reader, request_deadline)?;
+        println!("{:?}", http_response);
         if http_response.len() < 12 || !http_response.starts_with("HTTP/1.1 ") {
             return Err(Error::HttpParseError);
         }
